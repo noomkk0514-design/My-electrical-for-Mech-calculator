@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical System Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1>Electrical System Calculator</h1>
+            </div>
+            <p>Select EE For Mechanical Equipment</p>
+        </header>
+
+        <main>
+            <div class="table-container">
+                <div class="table-header">
+                    <h2>Feeders</h2>
+                    <button id="add-feeder-btn" class="btn primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        Add Feeder
+                    </button>
+                </div>
+                
+                <div class="table-wrapper">
+                    <table id="feeders-table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" class="sticky-col">Feeder</th>
+                                <th colspan="3">Input</th>
+                                <th colspan="3">Current (A)</th>
+                                <th colspan="2">Breaker</th>
+                                <th colspan="4">Cable</th>
+                                <th colspan="3">Raceway</th>
+                                <th rowspan="2">Actions</th>
+                            </tr>
+                            <tr class="sub-header">
+                                <th>kW</th>
+                                <th>Start</th>
+                                <th>Cable Type</th>
+                                <th>Rate</th>
+                                <th>x In</th>
+                                <th>Start (sum)</th>
+                                <th>AT</th>
+                                <th>AF</th>
+                                <th>L Cable</th>
+                                <th>L Type</th>
+                                <th>G Cable</th>
+                                <th>G Type</th>
+                                <th>In</th>
+                                <th>Size</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody id="feeders-body">
+                            <!-- Feeder rows will be generated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="summary-container">
+                <h2>Main Breaker Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <span class="label">Total Rate Current</span>
+                        <span class="value" id="summary-rate-current">0.0 A</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="label">Calculated Main Current</span>
+                        <span class="value" id="summary-calc-current">0.0 A</span>
+                    </div>
+                    <div class="summary-card highlight">
+                        <span class="label">Main Breaker AT</span>
+                        <span class="value" id="summary-at">-</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="label">Main Breaker AF</span>
+                        <span class="value" id="summary-af">-</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
